@@ -1,0 +1,17 @@
+# Godot project
+.import/
+.export/
+.godot/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
