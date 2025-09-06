@@ -1,0 +1,128 @@
+[gd_scene load_steps=18 format=3 uid="uid://bwl0fmgy8dt2r"]
+
+[ext_resource type="Script" uid="uid://cn2ygidss7x1n" path="res://Scripts/level1_enemyPath.gd" id="1_as0ph"]
+[ext_resource type="Texture2D" uid="uid://4f22vc8nxhi7" path="res://assets/enemies pixel art/1/D_Walk.png" id="2_as0ph"]
+[ext_resource type="Texture2D" uid="uid://pv23uwuhj6bf" path="res://assets/enemies pixel art/1/D_Death.png" id="2_i2twq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se5dt"]
+atlas = ExtResource("2_i2twq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siokw"]
+atlas = ExtResource("2_i2twq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qoqr"]
+atlas = ExtResource("2_i2twq")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpggm"]
+atlas = ExtResource("2_i2twq")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rhyc"]
+atlas = ExtResource("2_i2twq")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dwec"]
+atlas = ExtResource("2_i2twq")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi8cl"]
+atlas = ExtResource("2_as0ph")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1qj1"]
+atlas = ExtResource("2_as0ph")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke3xt"]
+atlas = ExtResource("2_as0ph")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_076wo"]
+atlas = ExtResource("2_as0ph")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hppos"]
+atlas = ExtResource("2_as0ph")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jspm"]
+atlas = ExtResource("2_as0ph")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2twq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se5dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siokw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qoqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpggm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rhyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dwec")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi8cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1qj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke3xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_076wo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hppos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jspm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_ir8iy"]
+script/source = "extends AnimatedSprite2D
+
+@onready var animated_sprite = $\".\"
+
+
+func _process(delta): 
+	animated_sprite.play(\"walk\")
+"
+
+[node name="PathFollow2D" type="PathFollow2D"]
+rotation = -0.00258397
+rotates = false
+loop = false
+script = ExtResource("1_as0ph")
+movSpeed = 100
+
+[node name="Enemy_Slime" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -4)
+rotation = 0.00258397
+sprite_frames = SubResource("SpriteFrames_i2twq")
+animation = &"walk"
+frame_progress = 0.182564
+script = SubResource("GDScript_ir8iy")

@@ -1,0 +1,115 @@
+3-Week Sprint Plan Tower Defense 
+
+-----------------------
+Week 1 – Core Gameplay Foundation (MVP)
+
+Goal: Have a working map where enemies walk and damage the player.
+
+Level Setup
+	Set up Level 1 TileMap. ✅
+	Add Path2D for enemy path. ✅
+	Create containers: Enemies ✅
+
+Enemy Prototype (Enemy 1)
+	Create Enemy1.tscn (basic slime-type).
+	Implement movement with PathFollow2D.
+	Add basic HP and speed variables.
+	Destroy enemy at path end (reduce player health).
+
+Spawner
+	Create a spawner node with wave timer.
+	Spawn Enemy 1 automatically (test wave).
+
+Player Health & Economy
+	Add player health system (integer).
+	Add gold variable (static for now).
+	Display health & gold with simple Labels.
+
+Tower Placeholder
+	Create Tower.tscn with idle sprite.
+	Allow placement on predefined spots (no shooting yet).
+
+End of Week 1 Deliverable:
+Enemies move along the path, player loses health when they pass, and towers can be placed visually.
+
+Week 2 – Towers, Combat & Enemy Expansion
+Goal: Towers can shoot, kill enemies, and be upgraded. More enemies introduced.
+
+Tower Combat
+	Add detection radius (Area2D + CollisionShape2D).
+	Implement basic attack (projectile or instant damage).
+	Destroy enemy when HP ≤ 0.
+
+Upgrade & Gold System
+	Add gold rewards for killing enemies.
+	Implement tower upgrade (3 levels for now).
+	Change tower sprite on upgrade.
+
+Enemies 2, 3, 4
+	Create Enemy2.tscn
+	Create Enemy3.tscn 
+	Create Enemy4.tscn 
+	Assign unique HP & speed to each.
+
+End of Week 2 Deliverable:
+Towers attack and destroy enemies, gold economy works, and all 4 enemy types spawn with different stats.
+
+Week 3 – Bosses, Levels & Game Flow
+Goal: Add bosses, multiple levels, and basic polish.
+
+Bosses
+	Create Boss1.tscn … Boss4.tscn (one per level).
+	Assign high HP & unique traits if needed.
+
+Levels
+	Add Levels 2–4, each with its own TileMap & Path2D.
+	Each level ends with its respective boss.
+
+UI & Game Flow
+	Add wave timer & start button.
+	Show wave number & countdown.
+	Add gold & health bars (UI elements).
+	Create main menu (Play, Quit) and level select.
+	Add pause menu & restart option.
+
+Polish
+	Add animations (enemy walk, death; tower idle, shoot).
+	Add basic sound effects (shooting, death, upgrade).
+	Balance enemy stats & tower costs.
+
+End of Week 3 Deliverable:
+Playable tower defense with 4 levels, bosses, UI, and basic polish.
+
+Development Approach
+
+Week 1: Focus only on enemies & path → no towers yet.
+Week 2: Focus only on towers & combat → enemies already working.
+Week 3: Focus on player-facing UI & polish → game becomes complete.
+
+
+These are the main "pillars" of your project, each with its own set of feature branches.
+
+1. Gameplay
+	feature/gameplay/path-system – Path logic, pathfinding, enemy movement.
+	feature/gameplay/spawning – Enemy waves, timers, spawn manager.
+	feature/gameplay/health-system – Player health, losing conditions.
+
+2. UI & UX
+	feature/ui/main-menu – Start screen, buttons.
+	feature/ui/hud – Player health bar, wave timer, gold counter.
+	feature/ui/upgrades-menu – Tower upgrade buttons, popups.
+
+3. Enemies
+	feature/enemies/base-enemy – Basic enemy logic (movement, health).
+	feature/enemies/slime – Slime implementation.
+	feature/enemies/all-enemies – Additional enemy types & bosses.
+
+4. Towers
+	feature/towers/base-tower – Base tower placement, shooting logic.
+	feature/towers/upgrades – Upgrade system (7 levels, archer changes).
+	feature/towers/dual-archer – Experiment with two-archer tower.
+
+5. Polish & Misc
+	feature/animations – All animations (tower, enemies, effects).
+	feature/sound-fx – Sounds for hits, tower shots, wave start.
+	feature/balance – Enemy stats, tower costs, upgrade balancing.
