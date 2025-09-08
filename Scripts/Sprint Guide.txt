@@ -23,8 +23,8 @@ Spawner
 
 Player Health & Economy
 	Add player health system (integer). ✅
-	Add gold variable (static for now).
-	Display health & gold with simple Labels.
+	Add gold variable.  ✅
+	Display health & gold with simple Labels.  ✅
 
 Tower Placeholder
 	Create Tower.tscn with idle sprite.
