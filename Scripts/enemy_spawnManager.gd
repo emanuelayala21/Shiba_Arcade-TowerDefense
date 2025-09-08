@@ -1,6 +1,5 @@
 extends Path2D
 
-
 @export var timer = 0
 @export var spawnTime = 3
 
