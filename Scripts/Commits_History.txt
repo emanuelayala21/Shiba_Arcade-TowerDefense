@@ -1,0 +1,10 @@
+feat(gameplay): implement core foundation with Level 1 and Enemy1
+
+- Set up Level 1 TileMap with Path2D for enemy path
+- Created Enemy1.tscn (basic slime-type) just speed
+- Implemented movement along the path using PathFollow2D
+
+feat(enemy): add enemy destruction and wave spawner
+
+- Destroy enemy at path end and reduce player health
+- Added Spawner node with wave timer to spawn Enemy1 automatically

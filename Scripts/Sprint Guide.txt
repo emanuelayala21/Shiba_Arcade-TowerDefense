@@ -11,17 +11,18 @@ Level Setup
 	Create containers: Enemies ✅
 
 Enemy Prototype (Enemy 1)
-	Create Enemy1.tscn (basic slime-type).
-	Implement movement with PathFollow2D.
-	Add basic HP and speed variables.
-	Destroy enemy at path end (reduce player health).
+	Create Enemy1.tscn (basic slime-type).✅
+	Implement movement with PathFollow2D. ✅
+	Add basic HP and speed variables.  ✅
+	Destroy enemy at path end  ✅
+	Reduce player health  ✅
 
 Spawner
-	Create a spawner node with wave timer.
-	Spawn Enemy 1 automatically (test wave).
+	Create a spawner node with wave timer. ✅
+	Spawn Enemy 1 automatically (test wave). ✅
 
 Player Health & Economy
-	Add player health system (integer).
+	Add player health system (integer). ✅
 	Add gold variable (static for now).
 	Display health & gold with simple Labels.
 
