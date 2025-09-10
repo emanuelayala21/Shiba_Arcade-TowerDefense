@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://djl77yq34dive"]
+
+[ext_resource type="Texture2D" uid="uid://dk52pojb601ji" path="res://assets/archer tower pixel art/1 Upgrade/1.png" id="1_wf0rn"]
+
+[node name="2" type="Sprite2D"]
+texture = ExtResource("1_wf0rn")
+hframes = 4
+frame = 3

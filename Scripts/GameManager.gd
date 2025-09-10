@@ -4,7 +4,7 @@ extends Node
 var current_hearts = max_hearts
 signal	lifes_changed() #signal that communicates w/ UI 
 
-@export var coin_amount = 0
+@export var coin_amount = 1000
 signal coins_changed(new_coins) #signal that communicates w/ UI 
 
 signal match_flag(value)

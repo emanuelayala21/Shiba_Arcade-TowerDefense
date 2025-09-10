@@ -8,7 +8,6 @@ func _process(delta):
 	progress += mov_speed * delta
 	if progress_ratio >= 1.0:
 		enemyReachedEnd()
-		#damage player healt
 			
 func enemyReachedEnd():
 	GameManager.reduce_life()

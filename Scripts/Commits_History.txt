@@ -8,3 +8,17 @@ feat(enemy): add enemy destruction and wave spawner
 
 - Destroy enemy at path end and reduce player health
 - Added Spawner node with wave timer to spawn Enemy1 automatically
+
+feat(player): add health and gold system with basic UI
+
+- Added player health system with lifes
+- Added gold variable
+- Displayed health and gold on the UI 
+- When enemy dies, drops money(not visually) and increase player coins
+- Replaced workaround calling each node by using proper signals for communication
+
+feat(tower): add placeholder tower with basic placement
+
+- Created Tower.tscn with idle sprite
+- Allowed placement on predefined spots 
+- No shooting yet, but stats for each upgrade are in place

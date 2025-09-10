@@ -27,8 +27,8 @@ Player Health & Economy
 	Display health & gold with simple Labels.  ✅
 
 Tower Placeholder
-	Create Tower.tscn with idle sprite.
-	Allow placement on predefined spots (no shooting yet).
+	Create Tower.tscn with idle sprite. ✅
+	Allow placement on predefined spots (no shooting yet). ✅
 
 End of Week 1 Deliverable:
 Enemies move along the path, player loses health when they pass, and towers can be placed visually.
