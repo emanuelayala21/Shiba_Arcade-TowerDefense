@@ -22,3 +22,14 @@ feat(tower): add placeholder tower with basic placement
 - Created Tower.tscn with idle sprite
 - Allowed placement on predefined spots 
 - No shooting yet, but stats for each upgrade are in place
+
+feat(tower): add combat, upgrades, and gold rewards
+
+- Added detection radius (Area2D + CollisionShape2D) for towers
+- Created arrow scene for enemy damage
+- Implemented basic attack using the arrow scene
+- Destroy enemies when HP ≤ 0
+- Added gold rewards for killing enemies
+- Implemented tower upgrades (7 levels)
+- Changed tower sprite on upgrade
+- Fixed null issues, removed unused variables, and cleaned code

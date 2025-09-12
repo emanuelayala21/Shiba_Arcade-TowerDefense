@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwl0fmgy8dt2r"]
+[gd_scene load_steps=19 format=3 uid="uid://bwl0fmgy8dt2r"]
 
 [ext_resource type="Script" uid="uid://biwa7dne4e01d" path="res://scripts/level1_enemyPath.gd" id="1_as0ph"]
 [ext_resource type="Texture2D" uid="uid://4f22vc8nxhi7" path="res://assets/enemies pixel art/1/D_Walk.png" id="2_as0ph"]
 [ext_resource type="Texture2D" uid="uid://pv23uwuhj6bf" path="res://assets/enemies pixel art/1/D_Death.png" id="2_i2twq"]
+[ext_resource type="Script" uid="uid://5svlhampudse" path="res://scripts/enemy_slime.gd" id="4_7gpbb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_se5dt"]
 atlas = ExtResource("2_i2twq")
@@ -73,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4dwec")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -101,32 +102,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="GDScript" id="GDScript_ir8iy"]
-script/source = "extends AnimatedSprite2D
-
-@onready var animated_sprite = $\".\"
-@export var slimeHealth = 50.0
-@onready var healthBar = $HealthBar
-
-
-func _process(delta): 
-	animated_sprite.play(\"walk\") 
-	updateHealt()
-	
-	
-func updateHealt(): 
-	healthBar.value = slimeHealth
-
-func takeDamage(damage): 
-	slimeHealth -= damage
-	if slimeHealth <= 0: 
-		print(\"Enemy has less than 0 health\")
-		animated_sprite.play(\"death\")
-		
-		
-"
+[sub_resource type="CircleShape2D" id="CircleShape2D_qyq5r"]
+radius = 23.0
 
 [node name="PathFollow2D" type="PathFollow2D"]
+position = Vector2(0, -3)
 rotation = -0.00258397
 rotates = false
 loop = false
@@ -134,12 +114,11 @@ script = ExtResource("1_as0ph")
 
 [node name="Enemy" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(0, -4)
+position = Vector2(0.0103359, -3.99999)
 rotation = 0.00258397
 sprite_frames = SubResource("SpriteFrames_i2twq")
-animation = &"walk"
-frame_progress = 0.182564
-script = SubResource("GDScript_ir8iy")
+animation = &"death"
+script = ExtResource("4_7gpbb")
 
 [node name="HealthBar" type="ProgressBar" parent="Enemy"]
 modulate = Color(1, 0, 0, 1)
@@ -157,3 +136,11 @@ step = 1.0
 value = 100.0
 fill_mode = 1
 show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="Enemy" groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+position = Vector2(0.0103359, 7.99999)
+shape = SubResource("CircleShape2D_qyq5r")
+
+[connection signal="animation_finished" from="Enemy" to="Enemy" method="_on_animation_finished"]

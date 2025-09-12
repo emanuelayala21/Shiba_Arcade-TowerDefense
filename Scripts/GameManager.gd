@@ -7,15 +7,15 @@ signal	lifes_changed() #signal that communicates w/ UI
 @export var coin_amount = 1000
 signal coins_changed(new_coins) #signal that communicates w/ UI 
 
-signal match_flag(value)
+signal match_flag(value) #signal that communicates w/ winning/lossing screen
 
-func reduce_life():
+func reduce_life(): #reduce player life
 	current_hearts -= 1
-	lifes_changed.emit()
+	lifes_changed.emit() #update UI 
 	if current_hearts<=0:
-		match_flag.emit()
+		match_flag.emit(false) #player loses 
 		print("game over Game manager sc")
 
-func add_coins(coins): 
+func add_coins(coins): #Method for coins management (even works for reducing the amount)
 	coin_amount += coins
-	coins_changed.emit(coin_amount) 
+	coins_changed.emit(coin_amount) #update UI 

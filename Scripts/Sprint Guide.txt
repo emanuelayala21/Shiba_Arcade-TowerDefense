@@ -37,14 +37,14 @@ Week 2 – Towers, Combat & Enemy Expansion
 Goal: Towers can shoot, kill enemies, and be upgraded. More enemies introduced.
 
 Tower Combat
-	Add detection radius (Area2D + CollisionShape2D).
-	Implement basic attack (projectile or instant damage).
-	Destroy enemy when HP ≤ 0.
+	Add detection radius (Area2D + CollisionShape2D). ✅ 
+	Implement basic attack (projectile or instant damage). ✅
+	Destroy enemy when HP ≤ 0.  ✅
 
 Upgrade & Gold System
-	Add gold rewards for killing enemies.
-	Implement tower upgrade (3 levels for now).
-	Change tower sprite on upgrade.
+	Add gold rewards for killing enemies.  ✅
+	Implement tower upgrade (7 levels for now). ✅
+	Change tower sprite on upgrade. ✅
 
 Enemies 2, 3, 4
 	Create Enemy2.tscn

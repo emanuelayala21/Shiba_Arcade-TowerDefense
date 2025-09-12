@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1lrfxmu5m8it"]
+
+[ext_resource type="Script" uid="uid://dp260xqa05lpb" path="res://scripts/arrowManager.gd" id="1_6ga5o"]
+[ext_resource type="Texture2D" uid="uid://c1bbmf1yppalv" path="res://assets/archer tower pixel art/3 Units/Arrow/1.png" id="1_kpq0i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_54s7l"]
+radius = 3.0
+
+[node name="Arrow" type="Node2D" groups=["arrow"]]
+script = ExtResource("1_6ga5o")
+
+[node name="Arrow_sprite" type="Sprite2D" parent="."]
+position = Vector2(0.5, 0)
+texture = ExtResource("1_kpq0i")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0.5, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_54s7l")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_enemy_hit_entered"]

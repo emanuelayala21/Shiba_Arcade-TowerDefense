@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cat3f7bnthc8t"]
 
 [ext_resource type="Texture2D" uid="uid://dk52pojb601ji" path="res://assets/archer tower pixel art/1 Upgrade/1.png" id="1_1n7fl"]
-[ext_resource type="Script" uid="uid://k6nwmioug55s" path="res://prefabs/towerSpot.gd" id="1_3kbsv"]
+[ext_resource type="Script" uid="uid://k6nwmioug55s" path="res://scripts/towerManager.gd" id="1_3kbsv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mh8vv"]
 radius = 48.0
@@ -13,13 +13,15 @@ height = 96.0
 radius = 186.024
 
 [node name="TowerGamePlay" type="Node2D"]
+position = Vector2(0, -29)
 script = ExtResource("1_3kbsv")
 
 [node name="ClickArea" type="Area2D" parent="."]
-position = Vector2(225, 242)
+position = Vector2(1, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
 position = Vector2(-1, 29)
+scale = Vector2(2.28, 2.28)
 shape = SubResource("CapsuleShape2D_mh8vv")
 
 [node name="Button" type="Button" parent="ClickArea"]
@@ -42,27 +44,29 @@ action_mode = 0
 text = "Upgrade"
 
 [node name="towerSprite2D" type="Sprite2D" parent="."]
-position = Vector2(225, 242)
 texture = ExtResource("1_1n7fl")
 hframes = 4
 
 [node name="AttackArea" type="Area2D" parent="towerSprite2D"]
-position = Vector2(0, 31)
+position = Vector2(2, 31)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="towerSprite2D/AttackArea"]
 shape = SubResource("CircleShape2D_1n7fl")
 debug_color = Color(0.960938, 0.960938, 0.960938, 0.42)
 
 [node name="message" type="Label" parent="."]
-offset_left = 129.0
-offset_top = 356.0
-offset_right = 317.0
-offset_bottom = 415.0
+offset_left = -94.0
+offset_top = 127.0
+offset_right = 94.0
+offset_bottom = 186.0
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_tower_input_event"]
 [connection signal="input_event" from="ClickArea" to="." method="_on_click_tower_input_event"]
 [connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_tower_mouse_entered"]
 [connection signal="mouse_exited" from="ClickArea" to="." method="_on_click_tower_mouse_exited"]
 [connection signal="pressed" from="ClickArea/Button" to="." method="_on_button_pressed"]
+[connection signal="area_entered" from="towerSprite2D/AttackArea" to="." method="_on_attack_area_enemy_entered"]
+[connection signal="area_exited" from="towerSprite2D/AttackArea" to="." method="_on_attack_area_enemy_exited"]
