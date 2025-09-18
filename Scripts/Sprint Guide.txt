@@ -40,7 +40,7 @@ Tower Combat
 	Add detection radius (Area2D + CollisionShape2D). ✅ 
 	Implement basic attack (projectile or instant damage). ✅
 	Destroy enemy when HP ≤ 0.  ✅
-	Add archer sprite and animations
+	Add archer sprite and animations ✅
 
 Upgrade & Gold System
 	Add gold rewards for killing enemies.  ✅

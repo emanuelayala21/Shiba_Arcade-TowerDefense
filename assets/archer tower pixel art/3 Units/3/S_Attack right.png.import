@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drr2bev0ru3tw"
-path="res://.godot/imported/D_Attack.png-4dae4789b7fd3ef839d26dfe5ac92aa4.ctex"
+uid="uid://b0pxhjnlvx58k"
+path="res://.godot/imported/S_Attack right.png-0dc825dada10bf08c87a489cf87813e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/archer tower pixel art/3 Units/2/D_Attack.png"
-dest_files=["res://.godot/imported/D_Attack.png-4dae4789b7fd3ef839d26dfe5ac92aa4.ctex"]
+source_file="res://assets/archer tower pixel art/3 Units/3/S_Attack right.png"
+dest_files=["res://.godot/imported/S_Attack right.png-0dc825dada10bf08c87a489cf87813e8.ctex"]
 
 [params]
 

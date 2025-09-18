@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cmkgofi285cri" path="res://assets/archer tower pixel art/2 Idle/FieldsTileset.png" id="2_i2041"]
 [ext_resource type="Texture2D" uid="uid://c0law0e8f6wmx" path="res://assets/img/dollar.png" id="2_usj0q"]
 [ext_resource type="Texture2D" uid="uid://e87jylgntwj1" path="res://assets/archer tower pixel art/2 Idle/FieldsTilesetTest.png" id="3_xy4tn"]
-[ext_resource type="Script" uid="uid://bhsak0fdnhlx0" path="res://scripts/enemy_spawnManager.gd" id="5_5j5gb"]
+[ext_resource type="Script" uid="uid://bhsak0fdnhlx0" path="res://scripts/SpawnManager.gd" id="5_5j5gb"]
 [ext_resource type="Script" uid="uid://biwa7dne4e01d" path="res://scripts/level1_enemyPath.gd" id="8_mx85b"]
 [ext_resource type="PackedScene" uid="uid://cat3f7bnthc8t" path="res://prefabs/TowerGamePlay.tscn" id="11_mx85b"]
 
@@ -542,3 +542,7 @@ script = ExtResource("5_5j5gb")
 position = Vector2(-502, -214)
 rotation = -0.00258397
 script = ExtResource("8_mx85b")
+
+[node name="TowerGamePlay" parent="." instance=ExtResource("11_mx85b")]
+position = Vector2(-1452, -179)
+current_tower_level = 3

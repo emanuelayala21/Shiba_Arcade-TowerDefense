@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r53bmo6m8d8h"
-path="res://.godot/imported/D_Preattack.png-58631a73797594f7989643a7e4fb04d0.ctex"
+uid="uid://drr2bev0ru3tw"
+path="res://.godot/imported/D_Attack.png-bb01781106d0a64245f581a263e889d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/archer tower pixel art/3 Units/2/D_Preattack.png"
-dest_files=["res://.godot/imported/D_Preattack.png-58631a73797594f7989643a7e4fb04d0.ctex"]
+source_file="res://assets/archer tower pixel art/3 Units/D_Attack.png"
+dest_files=["res://.godot/imported/D_Attack.png-bb01781106d0a64245f581a263e889d1.ctex"]
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

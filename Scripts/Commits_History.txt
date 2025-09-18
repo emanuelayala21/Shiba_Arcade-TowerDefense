@@ -39,3 +39,16 @@ feat(enemy): add enemies 2, 3, and 4 with unique HP
 - Created Enemy2.tscn, Enemy3.tscn, and Enemy4.tscn
 - Assigned distinct HP values
 - Speed will be configured later via spawn manager
+
+fix(tower): correct arrow rotation and targeting
+
+- Fixed arrow rotation to match travel direction
+- Corrected spawn position so arrows aim where enemy will be, not current position
+- Reduced missed shots due to timing and position errors
+
+feat(tower): add archer sprite, animations, and code cleanup
+
+- Added archer sprite and animations to towers
+- Corrected tower placement to account for tower height
+- Reorganized scripts and added comments for clarity
+- Known issue: Upgrade 4 roof positioning bug (not addressed)
