@@ -87,23 +87,22 @@ func showLabelMessage(var_message: String) -> void:
 
 # --- Enemy Detection ---
 func _on_attack_area_enemy_entered(area: Area2D) -> void:
-	if area.is_in_group("enemy"):
-		enemies_in_range.append(area)
+	if area.is_in_group("enemy"): 
+		var enemy = area.get_parent() #get the parent node for shoting direction improvement  
+		if enemy not in enemies_in_range:
+			enemies_in_range.append(enemy)
 		
 func _on_attack_area_enemy_exited(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
-		enemies_in_range.erase(area)
+		var enemy = area.get_parent()
+		enemies_in_range.erase(enemy)
 
 func towerShot(target):
-	# calculate direction of the objective 
-	var dir_vec = target.global_position - tower_sprite.global_position
-	var direction = dir_vec.normalized()
-
-	#generate arrow prefab and setup atr 
+	#generate arrow prefab and setup atributes 
 	var arrow_loc = arrow_prefab.instantiate() #instanciate arrow prefab 
 	arrow_loc.global_position = tower_sprite.global_position #apply position same as the tower
 	get_tree().current_scene.add_child(arrow_loc) # colocate the arrow on the scene 
-	arrow_loc.arrowSetup(direction,damage) 
+	arrow_loc.arrowSetup(target, damage) 
 
 # --- Tower UI / Interaction ---
 func _on_click_area_tower_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:

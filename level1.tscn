@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://jrqlq8lexeax"]
+[gd_scene load_steps=16 format=4 uid="uid://jrqlq8lexeax"]
 
 [ext_resource type="Texture2D" uid="uid://cfv4srk55gyr5" path="res://assets/tile set pixel art/1 Tiles/tileset filed.png" id="1_crycw"]
 [ext_resource type="Script" uid="uid://djb83a8se8lh0" path="res://scripts/UI_Manager.gd" id="1_usj0q"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c0law0e8f6wmx" path="res://assets/img/dollar.png" id="2_usj0q"]
 [ext_resource type="Texture2D" uid="uid://e87jylgntwj1" path="res://assets/archer tower pixel art/2 Idle/FieldsTilesetTest.png" id="3_xy4tn"]
 [ext_resource type="Script" uid="uid://bhsak0fdnhlx0" path="res://scripts/enemy_spawnManager.gd" id="5_5j5gb"]
-[ext_resource type="PackedScene" uid="uid://bwl0fmgy8dt2r" path="res://prefabs/level1_enemyPath.tscn" id="6_mx85b"]
-[ext_resource type="Texture2D" uid="uid://4hohvbm42ft" path="res://assets/archer tower pixel art/3 Units/1/D_Idle.png" id="8_5j5gb"]
 [ext_resource type="Script" uid="uid://biwa7dne4e01d" path="res://scripts/level1_enemyPath.gd" id="8_mx85b"]
 [ext_resource type="PackedScene" uid="uid://cat3f7bnthc8t" path="res://prefabs/TowerGamePlay.tscn" id="11_mx85b"]
 
@@ -428,43 +426,6 @@ _data = {
 }
 point_count = 34
 
-[sub_resource type="Animation" id="Animation_n8vhr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DIdle:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_hx44q"]
-resource_name = "unit1_idle"
-length = 1.66
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DIdle:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.23333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eqrsh"]
-_data = {
-&"RESET": SubResource("Animation_n8vhr"),
-&"unit1_idle": SubResource("Animation_hx44q")
-}
-
 [node name="Level1" type="Node2D"]
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -581,17 +542,3 @@ script = ExtResource("5_5j5gb")
 position = Vector2(-502, -214)
 rotation = -0.00258397
 script = ExtResource("8_mx85b")
-
-[node name="DIdle" type="Sprite2D" parent="."]
-position = Vector2(-828, 20)
-texture = ExtResource("8_5j5gb")
-hframes = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DIdle"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_eqrsh")
-}
-
-[node name="PathFollow2D" parent="." instance=ExtResource("6_mx85b")]
-position = Vector2(-1402, -561)

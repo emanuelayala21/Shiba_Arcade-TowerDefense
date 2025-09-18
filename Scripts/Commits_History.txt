@@ -33,3 +33,9 @@ feat(tower): add combat, upgrades, and gold rewards
 - Implemented tower upgrades (7 levels)
 - Changed tower sprite on upgrade
 - Fixed null issues, removed unused variables, and cleaned code
+
+feat(enemy): add enemies 2, 3, and 4 with unique HP
+
+- Created Enemy2.tscn, Enemy3.tscn, and Enemy4.tscn
+- Assigned distinct HP values
+- Speed will be configured later via spawn manager
