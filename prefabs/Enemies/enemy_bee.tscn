@@ -1,0 +1,147 @@
+[gd_scene load_steps=18 format=3 uid="uid://bpgf8ltacoef5"]
+
+[ext_resource type="Texture2D" uid="uid://bffdsxrp64yjd" path="res://assets/enemies pixel art/4/D_Death.png" id="1_ugydc"]
+[ext_resource type="Texture2D" uid="uid://cl0earbryqivy" path="res://assets/enemies pixel art/4/D_Walk.png" id="2_bq06d"]
+[ext_resource type="Script" uid="uid://5svlhampudse" path="res://scripts/enemy.gd" id="3_6d006"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqg6g"]
+atlas = ExtResource("1_ugydc")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14hrs"]
+atlas = ExtResource("1_ugydc")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjsy4"]
+atlas = ExtResource("1_ugydc")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mxpr"]
+atlas = ExtResource("1_ugydc")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3cic"]
+atlas = ExtResource("1_ugydc")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxscj"]
+atlas = ExtResource("1_ugydc")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj0yt"]
+atlas = ExtResource("2_bq06d")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neqaf"]
+atlas = ExtResource("2_bq06d")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmpvh"]
+atlas = ExtResource("2_bq06d")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rblt5"]
+atlas = ExtResource("2_bq06d")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ay5l"]
+atlas = ExtResource("2_bq06d")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ro4b"]
+atlas = ExtResource("2_bq06d")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4o8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqg6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14hrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjsy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mxpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3cic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxscj")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj0yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neqaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmpvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rblt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ay5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ro4b")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_io6qm"]
+radius = 13.1632
+
+[node name="Enemy_bee" type="PathFollow2D"]
+rotates = false
+loop = false
+
+[node name="Enemy2" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -13)
+rotation = 0.00516794
+sprite_frames = SubResource("SpriteFrames_i4o8g")
+animation = &"death"
+frame_progress = 0.564359
+script = ExtResource("3_6d006")
+enemy_health = 100.0
+coins_drop = 8
+
+[node name="HealthBar" type="ProgressBar" parent="Enemy2"]
+modulate = Color(1, 0, 0, 1)
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.115
+anchor_right = 0.5
+anchor_bottom = 0.115
+offset_left = -58.1442
+offset_top = -33.3439
+offset_right = 10.8558
+offset_bottom = -28.3439
+step = 1.0
+value = 100.0
+fill_mode = 1
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Enemy2" groups=["enemy"]]
+position = Vector2(-0.0284236, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2/Area2D"]
+position = Vector2(0.0180877, 11)
+shape = SubResource("CircleShape2D_io6qm")
+
+[connection signal="animation_finished" from="Enemy2" to="Enemy2" method="_on_animation_finished"]

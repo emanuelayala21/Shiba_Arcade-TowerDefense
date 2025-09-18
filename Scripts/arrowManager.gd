@@ -4,7 +4,7 @@ class_name ArrowManager
 @onready var arrow_sprite: Sprite2D = get_node_or_null("Arrow_sprite")
 
 var direction
-var speed = 1000 #arrow speed 
+var speed = 1300 #arrow speed 
 var damage
 
 func arrowSetup(dir, dam) -> void: 

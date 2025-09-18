@@ -1,0 +1,144 @@
+[gd_scene load_steps=19 format=3 uid="uid://jl445003hhee"]
+
+[ext_resource type="Texture2D" uid="uid://pv23uwuhj6bf" path="res://assets/enemies pixel art/1/D_Death.png" id="1_shn5r"]
+[ext_resource type="Script" uid="uid://biwa7dne4e01d" path="res://scripts/level1_enemyPath.gd" id="1_tsbkl"]
+[ext_resource type="Texture2D" uid="uid://4f22vc8nxhi7" path="res://assets/enemies pixel art/1/D_Walk.png" id="2_acxig"]
+[ext_resource type="Script" uid="uid://5svlhampudse" path="res://scripts/enemy.gd" id="3_pv72e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se5dt"]
+atlas = ExtResource("1_shn5r")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siokw"]
+atlas = ExtResource("1_shn5r")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qoqr"]
+atlas = ExtResource("1_shn5r")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpggm"]
+atlas = ExtResource("1_shn5r")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rhyc"]
+atlas = ExtResource("1_shn5r")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dwec"]
+atlas = ExtResource("1_shn5r")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi8cl"]
+atlas = ExtResource("2_acxig")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1qj1"]
+atlas = ExtResource("2_acxig")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke3xt"]
+atlas = ExtResource("2_acxig")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_076wo"]
+atlas = ExtResource("2_acxig")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hppos"]
+atlas = ExtResource("2_acxig")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jspm"]
+atlas = ExtResource("2_acxig")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cqpw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se5dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siokw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qoqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpggm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rhyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dwec")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi8cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1qj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke3xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_076wo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hppos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jspm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0pw4q"]
+radius = 9.01033
+
+[node name="EnemySlime" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_tsbkl")
+
+[node name="Enemy" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -8)
+rotation = 0.00258397
+sprite_frames = SubResource("SpriteFrames_cqpw0")
+animation = &"death"
+script = ExtResource("3_pv72e")
+
+[node name="HealthBar" type="ProgressBar" parent="Enemy"]
+modulate = Color(1, 0, 0, 1)
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.115
+anchor_right = 0.5
+anchor_bottom = 0.115
+offset_left = -52.0516
+offset_top = -25.4476
+offset_right = 3.94841
+offset_bottom = -20.4476
+step = 1.0
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="Enemy" groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+position = Vector2(0.0103359, 7.99999)
+shape = SubResource("CircleShape2D_0pw4q")
+
+[connection signal="animation_finished" from="Enemy" to="Enemy" method="_on_animation_finished"]

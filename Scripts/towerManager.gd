@@ -2,7 +2,7 @@ class_name TowerManager
 extends Node2D
 
 # Current tower stats 
-@export var cadence: float = 1.5
+@export var cadence: float = 2
 var time_cadence = 0.0
 @export var damage: float = 20.0
 @export var range: float = 30.0
@@ -24,19 +24,19 @@ var arrow_prefab = preload("res://prefabs/arrow.tscn")
 var upgrades_stats := [
 	{
 		"sprite": preload("res://assets/archer tower pixel art/1 Upgrade/1.png"),
-		"cadence": 1.5, "damage": 20.0, "range": 30.0, "next_cost": 15
+		"cadence": 2, "damage": 20.0, "range": 30.0, "next_cost": 15
 	},
 	{
 		"sprite": preload("res://assets/archer tower pixel art/1 Upgrade/2.png"),
-		"cadence": 1.4, "damage": 25.0, "range": 35.0, "next_cost": 30
+		"cadence": 1.75, "damage": 25.0, "range": 35.0, "next_cost": 30
 	},
 	{
 		"sprite": preload("res://assets/archer tower pixel art/1 Upgrade/3.png"),
-		"cadence": 1.3, "damage": 30.0, "range": 40.0, "next_cost": 45
+		"cadence": 1.5, "damage": 30.0, "range": 40.0, "next_cost": 45
 	},
 	{
 		"sprite": preload("res://assets/archer tower pixel art/1 Upgrade/4.png"),
-		"cadence": 1.2, "damage": 35.0, "range": 45.0, "next_cost": 60
+		"cadence": 1.25, "damage": 35.0, "range": 45.0, "next_cost": 60
 	},
 	{
 		"sprite": preload("res://assets/archer tower pixel art/1 Upgrade/5.png"),
@@ -44,11 +44,11 @@ var upgrades_stats := [
 	},
 	{
 		"sprite": preload("res://assets/archer tower pixel art/1 Upgrade/6.png"),
-		"cadence": 1.0, "damage": 50.0, "range": 55.0, "next_cost": 100
+		"cadence": 1, "damage": 50.0, "range": 55.0, "next_cost": 100
 	},
 	{
 		"sprite": preload("res://assets/archer tower pixel art/1 Upgrade/7.png"),
-		"cadence": 0.9, "damage": 60.0, "range": 60.0, "next_cost": 125
+		"cadence": 0.8, "damage": 60.0, "range": 60.0, "next_cost": 125
 	}
 ]
 

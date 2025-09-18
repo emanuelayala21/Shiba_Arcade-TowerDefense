@@ -40,6 +40,7 @@ Tower Combat
 	Add detection radius (Area2D + CollisionShape2D). ✅ 
 	Implement basic attack (projectile or instant damage). ✅
 	Destroy enemy when HP ≤ 0.  ✅
+	Add archer sprite and animations
 
 Upgrade & Gold System
 	Add gold rewards for killing enemies.  ✅
@@ -47,10 +48,10 @@ Upgrade & Gold System
 	Change tower sprite on upgrade. ✅
 
 Enemies 2, 3, 4
-	Create Enemy2.tscn
-	Create Enemy3.tscn 
-	Create Enemy4.tscn 
-	Assign unique HP & speed to each.
+	Create Enemy2.tscn✅
+	Create Enemy3.tscn ✅
+	Create Enemy4.tscn ✅
+	Assign unique HP & speed to each. ❇️ (speed is missing, needs to wait for spawn manager)
 
 End of Week 2 Deliverable:
 Towers attack and destroy enemies, gold economy works, and all 4 enemy types spawn with different stats.
@@ -67,16 +68,25 @@ Levels
 	Each level ends with its respective boss.
 
 UI & Game Flow
-	Add wave timer & start button.
-	Show wave number & countdown.
-	Add gold & health bars (UI elements).
-	Create main menu (Play, Quit) and level select.
-	Add pause menu & restart option.
+	Add main menu (Play, Quit)
+	Add win/lose screens
+	Add pause menu & restart option
+	Add wave timer & start button
+	Show wave number & countdown
+	Display gold & health bars (UI elements)
+	Add visual feedback for tower upgrades and damage
 
-Polish
-	Add animations (enemy walk, death; tower idle, shoot).
-	Add basic sound effects (shooting, death, upgrade).
-	Balance enemy stats & tower costs.
+Audio & Effects
+	Add background music
+	Add sound effects: tower shots, enemy hit, upgrade, victory/lose
+
+Polish & Gameplay Enhancements
+	Add animations (enemy walk, death; tower idle, shoot)
+	Implement tower placement preview (ghost tower before placing)
+	Add incremental tower costs & gold rewards for balancing
+	Implement enemy wave difficulty scaling
+	Optional: Add special tower abilities (slow, splash damage)
+	Optional: Add tooltips for tower stats/upgrades in UI
 
 End of Week 3 Deliverable:
 Playable tower defense with 4 levels, bosses, UI, and basic polish.

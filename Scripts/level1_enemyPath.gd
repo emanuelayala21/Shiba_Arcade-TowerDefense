@@ -1,7 +1,7 @@
 class_name	Level1EnemyPath
 extends PathFollow2D
 
-@export var mov_speed = 100.0
+@export var mov_speed = 130.0
 
 func _process(delta): 
 	progress += mov_speed * delta
